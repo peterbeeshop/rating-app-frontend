@@ -1,0 +1,37 @@
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px
+}
+
+.innerContainer {
+    background-color: #7C8BA0;
+    height: 170px;
+    width:100%;
+    border-bottom: 3px solid #C59867;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding-left: 30px;
+}
+
+.name {
+    font-size: 30px;
+    color: white;
+}
+.location {
+    font-size: 15px;
+    color: white;
+}
+.linkTag {
+    text-decoration: none;
+    color: #C59867;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}

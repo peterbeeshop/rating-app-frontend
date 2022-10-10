@@ -1,0 +1,40 @@
+.detailsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    color: #C5D0DB;
+    font-weight: 400;
+}
+
+.heading2 {
+    color: #0288cb;
+}
+
+.addressContainer {
+    margin: 10px 0;
+}
+
+h2 {
+    color: white;
+}
+
+.ratingsContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.headingh4 {
+    color: #C59867;
+    font-weight: 300;
+}
+
+.ratingCard {
+    border: 1px solid #d3d3d3;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
