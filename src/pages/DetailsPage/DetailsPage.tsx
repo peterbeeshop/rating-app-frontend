@@ -1,23 +1,22 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import {useParams} from 'react-router-dom'
-import {RestaurantType} from '../../types/restaurants';
 import styles from './DetailsPage.module.css'
-import {getRestaurantById} from '../../services/restaurants'
-
+import {useSelector, useDispatch} from 'react-redux'
+import {AppDispatch, RootState} from '../../store';
+import {getRestaurants, restaurantSelectors} from '../../store/restaurants';
 
 function DetailsPage() {
-  let { id } = useParams();
+  const dispatch = useDispatch<AppDispatch>()
+  let { id } = useParams<{ id?: string }>();
 
-  const [restaurant, setRestaurant] = useState<RestaurantType>();
+    const restaurant = useSelector((state:RootState) =>
+        restaurantSelectors.selectRestauranttById(state,Number.parseInt(id!) )
+	  );
 
-  useEffect(() => {
-    const fetchRestaurantById = async() => {
-        const response = await getRestaurantById(id!)
-        setRestaurant(response);
-    }
-
-    fetchRestaurantById()
-  }, [id])
+    //incase the page is refreshed while still on the details page
+    useEffect(() => {
+      dispatch(getRestaurants())
+    }, [dispatch]) 
 
   return (
     <>

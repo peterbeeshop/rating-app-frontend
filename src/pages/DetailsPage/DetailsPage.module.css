@@ -38,3 +38,11 @@ h2 {
     margin-bottom: 10px;
     padding-left: 10px;
 }
+
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:40vh;
+}

@@ -1,20 +1,28 @@
-import {useEffect, useState} from 'react'
+import {useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import styles from './Restaurants.module.css'
-import {RestaurantType} from '../../types/restaurants'
-import {getAllRestaurants} from '../../services/restaurants'
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
+import { useDispatch, useSelector } from 'react-redux'
+import {AppDispatch, RootState} from '../../store'
+import {getRestaurants} from '../../store/restaurants'
 
 const Restaurants = () => {
-    const [restaurants, setRestaurants] = useState<RestaurantType[]>()
+    const dispatch = useDispatch<AppDispatch>()
+
+    const { restaurants, loading } = useSelector((state: RootState) => state.restaurants)
 
     useEffect(() => {
-        const fetchRestaurants = async() => {
-            const response = await getAllRestaurants()
-            setRestaurants(response);
-        }
+      dispatch(getRestaurants())
+    }, [dispatch])    
 
-        fetchRestaurants()
-    }, [])
+    if (loading) {
+        return (
+          <Box className={styles.loading}>
+            <CircularProgress />
+          </Box>
+        );
+    }
 
     return (
         <div className={styles.container}>

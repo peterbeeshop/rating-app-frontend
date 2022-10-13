@@ -8,8 +8,7 @@ const Header = () => {
     <div className={styles.container}>
       <h1 className={styles.heading}>RESTAURANT RATING APP</h1>
       <div className={styles.menuItem}>
-        <Link className={styles.linkTag} to="/"><h4>Home</h4></Link>
-        <Link className={styles.linkTag} to="/restaurants"><h4>Restaurants</h4></Link>
+        <Link className={styles.linkTag} to="/"><h4>Restaurants</h4></Link>
       </div>
     </div>
   )
